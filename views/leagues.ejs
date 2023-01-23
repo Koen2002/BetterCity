@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  /*   border: 1px solid red; */
+  }
+
+.header-body {
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(70,252,100,1) 100%);
+
+} 
+
+.header {
+    display: flex;
+    justify-content: center;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 35px;
+    padding: 10px;
+    color: black
+}
+
+h2 {
+    font-size: 30px;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    border-radius: 5px;
+    padding-bottom: 5px;
+}
+
+img {
+    width: 100%;
+    height: 300px;
+}
+
+.premier-league, .bundesliga, .ligue-1, .serie-a, .laliga, .eredivisie {
+    padding: 20px;
+    margin: 10px;
+    background-color: lightgreen;
+    max-width: 400px;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.logo {
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.footer-body {
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(70,252,100,1) 100%);
+    padding: 20px;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 35px;
+}
+
+.leagues {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 67px - 87px);
+}
+
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leagues</title>
+</head>
+<body>
+    <H1>All Leagues</H1>
+    
+
+    <div class="header-body">
+        <h1 class="header">
+         BetterCity
+        </h1>  
+     </div>
+ 
+     <div class="leagues">
+        <% for(league of leagues) { %>
+            <a href="<%= league.id %>/standings ">
+               <div class="premier-league">
+                   <h2> <%= league.name %> </h2>
+                   <img class="logo" src="<%= league.logo %>"/>
+               </div>
+            </a>
+        <% } %>
+     </div>
+ 
+     <div class="footer-body">
+         <h1 class="footer">
+             Social Media
+          </h1>
+     </div>
+</body>
+</html>

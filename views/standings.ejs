@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  /*   border: 1px solid red; */
+  }
+
+  body {
+    background-color: rgb(129, 212, 199);
+    
+  }
+
+  .header {
+    padding: 10px;
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(70,252,100,1) 100%);
+  }
+
+  .header, .header-standings {
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  .header-standings {
+    color: rgb(184, 184, 17);
+  }
+
+  tbody {
+    
+    flex-direction: column;
+  }
+
+  table {
+    margin: auto;
+  }
+
+  tr {
+    font-size: 20px;
+    padding: 10px;
+    font-family: 'Nunito', sans-serif;
+    color: rgb(0, 0, 0);
+    min-width: 100%;
+  }
+
+  .first-col {
+    
+    justify-content: center;
+    gap: 10px;
+  }
+
+  th {
+    padding: 0;
+  }
+
+  td {
+    text-align: center;
+    color: rgb(250, 142, 2);
+    padding: 5px;
+  }
+
+  .team-logos {
+    padding: 0;
+    width: 100%;
+    max-width: 75px;
+  }
+
+  .firts-four td{
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  .middelmoot td {
+    color: rgb(30, 175, 16);
+  }
+
+  .last-three td {
+    color: red;
+  }
+
+  .last-five-played {
+    display: none;
+  }
+    /* Mobile Layout */
+  @media only screen and (min-width: 600px) {
+    /* Tablet Layout */
+    .last-five-played {
+      display: table-cell;
+      
+    }
+
+    table {
+      margin: auto;
+    }
+  }
+
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eredivisie Standings</title>
+</head>
+<body>
+    <div class="header-body">
+        <h1 class="header">
+         BetterCity
+        </h1>  
+        <h1 class="header-standings">Standings</h1>
+     </div>
+    <table>
+        <thead>
+          <tr class="first-col">
+            <th>#</th>
+            <th>Team</th>
+            <th>GP</th>
+            <th>W</th>
+            <th>D</th>
+            <th>L</td>
+            <th>GD</th>
+            <th>PTS</th>
+            <th class="last-five-played">LFP</th>
+         </tr>
+        </thead>
+        <tbody>
+            
+            <% for(team of teams) { %>
+                <tr>
+                  <td><%= team.position %></td>
+                  <td><img class ="team-logos "src="<%= team.team.crest %>" alt=""></td>
+                  <td><%= team.playedGames%></td>
+                  <td><%= team.won %></td>
+                  <td><%= team.draw %></td>
+                  <td><%= team.lost %></td>
+                  <td><%= team.goalDifference %></td>
+                  <td><%= team.points %></td>
+                  <td class="last-five-played"><%= team.form %></td>
+                </tr>
+              <% } %>
+        </tbody>
+    </table>
+</body>
+
+
+</html>

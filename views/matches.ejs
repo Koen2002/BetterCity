@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matches</title>
+</head>
+<body>
+    <h1>All Matchdays</h1>
+    <% for (round of rounds) { %>
+        <details
+        <% if (round[0].season.currentMatchday -1 === round[0].matchday) { %>
+               <%= "open" %>
+        <% } %>     
+        >
+            <summary>
+                Speelronde <%= round[0].matchday  %> 
+            </summary>
+        
+            <% for(match of round) { %>
+                <div>
+                    <h3>
+                        <span><a href="<%= match.id %>/matches "><%= match.homeTeam.name%> </a></span>
+                        <span> <%= match.score.fullTime.home %> </span>
+                        <span> - </span>
+                        <span> <%= match.score.fullTime.away %> </span>
+                        <span> <%= match.awayTeam.name %> </span>
+                    </h3>
+                </div>
+            <% } %> 
+        </details>
+    <% } %>
+</body>
+</html>
